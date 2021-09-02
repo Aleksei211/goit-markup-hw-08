@@ -12,6 +12,7 @@ body {
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
+  width: 100vw;
 }
 
 @media screen and (min-width: 480px) {
@@ -77,6 +78,7 @@ img {
 }
 
 .menu-button {
+  background-color: #fff;
   position: absolute;
   right: 10px;
   top: 10px;
@@ -86,6 +88,7 @@ img {
   margin: 0;
   padding: 0;
   border: none;
+  z-index: 999;
 }
 
 @media screen and (min-width: 767px) {
@@ -95,7 +98,9 @@ img {
 }
 
 .menu-container {
-  width: 100%;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,9 +120,9 @@ img {
 @media screen and (max-width: 767px) {
   .menu-container {
     display: none;
-    position: absolute;
-    width: 100%;
-    top: 100%;
+    position: fixed;
+    height: 100vh;
+    top: 0;
     left: 0;
   }
 }
@@ -125,6 +130,7 @@ img {
 @media screen and (min-width: 768px) {
   .menu-container {
     padding: 0;
+    height: 100%;
   }
 }
 
@@ -147,12 +153,17 @@ img {
 .main-nav {
   position: relative;
   height: 60px;
-  padding-top: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .main-nav {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .main-nav {
-    padding: 0;
     height: 80px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -165,7 +176,6 @@ img {
 
 @media screen and (min-width: 768px) {
   .site-nav {
-    position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -189,17 +199,20 @@ img {
 }
 
 .site-nav__link {
+  position: relative;
   display: block;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.17;
   letter-spacing: 0.02em;
   color: #212121;
-  padding-top: 32px;
   padding-bottom: 32px;
   color: #212121;
   -webkit-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* &:last-child {
+    padding-bottom: 0;
+  }*/
 }
 
 @media screen and (max-width: 767px) {
@@ -210,6 +223,12 @@ img {
     font-size: 40px;
     line-height: 47px;
     letter-spacing: 0.02em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .site-nav__link {
+    padding-top: 32px;
   }
 }
 
@@ -228,8 +247,6 @@ img {
   width: 100%;
   height: 4px;
   border-radius: 2px;
-  margin: 0;
-  padding: 0;
   left: 0;
   bottom: 0;
   opacity: 0;
@@ -492,6 +509,7 @@ img {
 }
 
 .portfolio-card__title {
+  margin: 0;
   color: #212121;
   font-style: normal;
   font-weight: bold;
@@ -522,6 +540,7 @@ img {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: -15px;
+  padding-bottom: 60px;
 }
 
 @media screen and (min-width: 768px) {
@@ -532,7 +551,14 @@ img {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .portfolio-list {
+    padding-bottom: 94px;
+  }
+}
+
 .portfolio-card {
+  width: 450px;
   margin: 15px;
   -webkit-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -540,12 +566,14 @@ img {
 
 @media screen and (min-width: 768px) {
   .portfolio-card {
+    width: 354px;
     width: calc((100% - 4 * 15px) / 2);
   }
 }
 
 @media screen and (min-width: 1200px) {
   .portfolio-card {
+    width: 370px;
     width: calc((100% - 6 * 15px) / 3);
   }
 }
@@ -560,10 +588,7 @@ img {
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 24px;
 }
 
 /*.portfolio-card:nth-child(3n) {
@@ -591,7 +616,7 @@ img {
   bottom: 0;
   left: 0;
   color: #ffffff;
-  padding: 63px 24px;
+  padding: 77px 24px;
   background-color: rgba(33, 150, 243, 0.9);
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
@@ -599,10 +624,33 @@ img {
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+@media screen and (min-width: 768px) {
+  .portfolio-card__overlay {
+    padding: 49px 24px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .portfolio-card__overlay {
+    padding: 63px 24px;
+  }
+}
+
 .portfolio-card:focus .portfolio-card__overlay,
 .portfolio-card:hover .portfolio-card__overlay {
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+.portfolio-card__overlay-text {
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.55;
+  /* or 156% */
+  letter-spacing: 0.03em;
+  color: #ffffff;
 }
 
 .address-title {
@@ -618,7 +666,7 @@ img {
 }
 
 footer {
-  width: 100%;
+  width: 100vw;
   height: 603px;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -630,14 +678,12 @@ footer {
 
 @media screen and (min-width: 768px) {
   footer {
-    width: 768px;
     height: 463px;
   }
 }
 
 @media screen and (min-width: 1200px) {
   footer {
-    width: 1600px;
     height: 252px;
   }
 }
@@ -663,12 +709,25 @@ footer {
 
 @media screen and (min-width: 768px) {
   .footer {
+    padding-left: 76px;
+    padding-right: 89px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .footer {
+    padding: 0;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
@@ -778,7 +837,7 @@ footer {
 
 @media screen and (min-width: 768px) {
   .footer-col2 {
-    margin-left: 165px;
+    margin-top: 5px;
     margin-bottom: 102px;
   }
 }
@@ -836,13 +895,15 @@ footer {
   .footer-col3 {
     margin-top: 0;
     padding: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .footer-col3 {
-    width: 570px;
-    margin-left: 93px;
+    margin: 0;
+    max-width: 570px;
     margin-bottom: 94px;
   }
 }
@@ -880,6 +941,7 @@ footer {
   border: 1px solid #757575;
   background-color: #2f303a;
   max-width: 358px;
+  width: 100%;
   height: 50px;
 }
 

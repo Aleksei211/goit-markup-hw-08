@@ -1,9 +1,9 @@
-.section,
-.works {
-  padding-bottom: 60px;
-}
 .section {
   padding-top: 60px;
+  @media screen and (min-width: 1200px) {
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
 }
 .section__title {
   padding: 0;
@@ -33,7 +33,7 @@
     // justify-content: flex-start;
     //align-items: stretch;
 
-    margin: -15px;
+    // margin: -15px;
   }
 
   @media screen and (min-width: 1200px) {
@@ -49,18 +49,24 @@
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+  //margin-bottom: 30px;
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 0;
+  }
 }
 
 .section__feature {
   margin: 0;
   padding-left: auto;
   padding-right: auto;
+  padding-bottom: 30px;
 
   @media screen and (min-width: 480px) {
     width: 450px;
   }
 
   @media screen and (min-width: 768px) {
+    width: 354px;
     width: calc((100% - 4 * 15px) / 2);
     //display: block;
     //flex-wrap: wrap;
@@ -69,7 +75,9 @@
   }
   @media screen and (min-width: 1200px) {
     width: calc((100% - 8 * 15px) / 4);
-    margin-right: 30px;
+    width: 270px;
+    margin: 0;
+    //margin-right: 30px;
     justify-content: space-between;
   }
   &:last-child {

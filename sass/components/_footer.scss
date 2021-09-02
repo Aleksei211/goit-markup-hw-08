@@ -11,7 +11,7 @@
 }
 
 footer {
-  width: 100%;
+  width: 100vw;
   height: 603px;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -20,11 +20,11 @@ footer {
   margin-left: auto;
   margin-right: auto;
   @media screen and (min-width: 768px) {
-    width: 768px;
+    // width: 768px;
     height: 463px;
   }
   @media screen and (min-width: 1200px) {
-    width: 1600px;
+    // width: 1600px;
     height: 252px;
   }
 }
@@ -39,10 +39,18 @@ footer {
   margin: 0;
   justify-content: center;
   @media screen and (min-width: 768px) {
+    padding-left: 76px;
+    padding-right: 89px;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  @media screen and (min-width: 1200px) {
+    padding: 0;
+    justify-content: space-between;
   }
 }
+
 .ftr-cnt {
   display: flex;
   flex-direction: column;
@@ -111,7 +119,9 @@ footer {
   height: 80px;
   align-items: center;
   @media screen and (min-width: 768px) {
-    margin-left: 165px;
+    margin-top: 5px;
+
+    //  margin-left: 165px;
     margin-bottom: 102px;
   }
   @media screen and (min-width: 1200px) {
@@ -153,11 +163,14 @@ footer {
   @media screen and (min-width: 768px) {
     margin-top: 0;
     padding: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
   @media screen and (min-width: 1200px) {
-    width: 570px;
+    margin: 0;
+    max-width: 570px;
     // align-items: center;
-    margin-left: 93px;
+    //margin-left: 93px;
     margin-bottom: 94px;
   }
 }
@@ -178,6 +191,7 @@ footer {
   border: 1px solid $text-color;
   background-color: $accent-bg-color;
   max-width: 358px;
+  width: 100%;
   height: 50px;
 }
 .button--ftr {
